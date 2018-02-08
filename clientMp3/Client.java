@@ -145,7 +145,8 @@ public class Client
                         case DOWNLOAD:
                             System.out.print("\033[H\033[2J");
                             System.out.print("en test");
-                           //app.music result = null;
+                            server.testLibvlcPlayer();
+                            //app.music result = null;
                             //byte[] file = server.downloadDocument(result);
                             break;
                         default:

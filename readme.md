@@ -87,3 +87,8 @@ make
 ```bash
 make clean
 ```
+
+
+Readme 2
+
+pip install python-vlc

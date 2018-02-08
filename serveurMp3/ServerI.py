@@ -1,5 +1,7 @@
 import app
 from Music import Music
+import vlc
+import time
 
 class ServerI(app.Server):
 
@@ -32,3 +34,11 @@ class ServerI(app.Server):
         f = open("musics/MINIONS.mp3", "rb")
         data = f.read()
         return data
+
+    def testLibvlcPlayer(self,current=None):
+       print('test')
+       media_name = "MINIONS.mp3"
+       sout = '#transcode{acodec=mp3,ab=128,channels=2,samplerate=44100}:http{dst=:8090/' + str(media_name)+'}'
+       instance = vlc.Instance("")
+       instance.vlm_add_broadcast("lecteur", media_name, sout, 0, [], True, False)
+       instance.vlm_play_media("lecteur")

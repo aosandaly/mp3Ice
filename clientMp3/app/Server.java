@@ -32,6 +32,8 @@ public interface Server extends com.zeroc.Ice.Object
 
     byte[] downloadDocument(music music, com.zeroc.Ice.Current current);
 
+    void testLibvlcPlayer(com.zeroc.Ice.Current current);
+
     static final String[] _iceIds =
     {
         "::Ice::Object",
@@ -124,6 +126,14 @@ public interface Server extends com.zeroc.Ice.Object
         return inS.setResult(ostr);
     }
 
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_testLibvlcPlayer(Server obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        inS.readEmptyParams();
+        obj.testLibvlcPlayer(current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
     final static String[] _iceOps =
     {
         "addDocument",
@@ -134,7 +144,8 @@ public interface Server extends com.zeroc.Ice.Object
         "ice_isA",
         "ice_ping",
         "removeDocument",
-        "searchDocument"
+        "searchDocument",
+        "testLibvlcPlayer"
     };
 
     @Override
@@ -184,6 +195,10 @@ public interface Server extends com.zeroc.Ice.Object
             case 8:
             {
                 return _iceD_searchDocument(this, in, current);
+            }
+            case 9:
+            {
+                return _iceD_testLibvlcPlayer(this, in, current);
             }
         }
 
