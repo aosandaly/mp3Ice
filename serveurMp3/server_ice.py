@@ -212,17 +212,29 @@ if 'ServerPrx' not in _M_app.__dict__:
         def end_downloadDocument(self, _r):
             return _M_app.Server._op_downloadDocument.end(self, _r)
 
-        def testLibvlcPlayer(self, context=None):
-            return _M_app.Server._op_testLibvlcPlayer.invoke(self, ((), context))
+        def LibvlcPlayerPlay(self, context=None):
+            return _M_app.Server._op_LibvlcPlayerPlay.invoke(self, ((), context))
 
-        def testLibvlcPlayerAsync(self, context=None):
-            return _M_app.Server._op_testLibvlcPlayer.invokeAsync(self, ((), context))
+        def LibvlcPlayerPlayAsync(self, context=None):
+            return _M_app.Server._op_LibvlcPlayerPlay.invokeAsync(self, ((), context))
 
-        def begin_testLibvlcPlayer(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_app.Server._op_testLibvlcPlayer.begin(self, ((), _response, _ex, _sent, context))
+        def begin_LibvlcPlayerPlay(self, _response=None, _ex=None, _sent=None, context=None):
+            return _M_app.Server._op_LibvlcPlayerPlay.begin(self, ((), _response, _ex, _sent, context))
 
-        def end_testLibvlcPlayer(self, _r):
-            return _M_app.Server._op_testLibvlcPlayer.end(self, _r)
+        def end_LibvlcPlayerPlay(self, _r):
+            return _M_app.Server._op_LibvlcPlayerPlay.end(self, _r)
+
+        def LibvlcPlayerStop(self, context=None):
+            return _M_app.Server._op_LibvlcPlayerStop.invoke(self, ((), context))
+
+        def LibvlcPlayerStopAsync(self, context=None):
+            return _M_app.Server._op_LibvlcPlayerStop.invokeAsync(self, ((), context))
+
+        def begin_LibvlcPlayerStop(self, _response=None, _ex=None, _sent=None, context=None):
+            return _M_app.Server._op_LibvlcPlayerStop.begin(self, ((), _response, _ex, _sent, context))
+
+        def end_LibvlcPlayerStop(self, _r):
+            return _M_app.Server._op_LibvlcPlayerStop.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -268,8 +280,11 @@ if 'ServerPrx' not in _M_app.__dict__:
         def downloadDocument(self, music, current=None):
             raise NotImplementedError("servant method 'downloadDocument' not implemented")
 
-        def testLibvlcPlayer(self, current=None):
-            raise NotImplementedError("servant method 'testLibvlcPlayer' not implemented")
+        def LibvlcPlayerPlay(self, current=None):
+            raise NotImplementedError("servant method 'LibvlcPlayerPlay' not implemented")
+
+        def LibvlcPlayerStop(self, current=None):
+            raise NotImplementedError("servant method 'LibvlcPlayerStop' not implemented")
 
         def __str__(self):
             return IcePy.stringify(self, _M_app._t_ServerDisp)
@@ -284,7 +299,8 @@ if 'ServerPrx' not in _M_app.__dict__:
     Server._op_displayListMusic = IcePy.Operation('displayListMusic', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_app._t_tab, False, 0), ())
     Server._op_searchDocument = IcePy.Operation('searchDocument', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_app._t_tab, False, 0), ())
     Server._op_downloadDocument = IcePy.Operation('downloadDocument', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_app._t_music, False, 0),), (), ((), _M_app._t_file, False, 0), ())
-    Server._op_testLibvlcPlayer = IcePy.Operation('testLibvlcPlayer', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Server._op_LibvlcPlayerPlay = IcePy.Operation('LibvlcPlayerPlay', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Server._op_LibvlcPlayerStop = IcePy.Operation('LibvlcPlayerStop', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_app.Server = Server
     del Server

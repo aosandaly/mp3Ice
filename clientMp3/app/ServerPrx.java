@@ -186,29 +186,56 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void testLibvlcPlayer()
+    default void LibvlcPlayerPlay()
     {
-        testLibvlcPlayer(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        LibvlcPlayerPlay(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void testLibvlcPlayer(java.util.Map<String, String> context)
+    default void LibvlcPlayerPlay(java.util.Map<String, String> context)
     {
-        _iceI_testLibvlcPlayerAsync(context, true).waitForResponse();
+        _iceI_LibvlcPlayerPlayAsync(context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> testLibvlcPlayerAsync()
+    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerPlayAsync()
     {
-        return _iceI_testLibvlcPlayerAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_LibvlcPlayerPlayAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> testLibvlcPlayerAsync(java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerPlayAsync(java.util.Map<String, String> context)
     {
-        return _iceI_testLibvlcPlayerAsync(context, false);
+        return _iceI_LibvlcPlayerPlayAsync(context, false);
     }
 
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_testLibvlcPlayerAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_LibvlcPlayerPlayAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "testLibvlcPlayer", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "LibvlcPlayerPlay", null, sync, null);
+        f.invoke(false, context, null, null, null);
+        return f;
+    }
+
+    default void LibvlcPlayerStop()
+    {
+        LibvlcPlayerStop(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void LibvlcPlayerStop(java.util.Map<String, String> context)
+    {
+        _iceI_LibvlcPlayerStopAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerStopAsync()
+    {
+        return _iceI_LibvlcPlayerStopAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerStopAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_LibvlcPlayerStopAsync(context, false);
+    }
+
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_LibvlcPlayerStopAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "LibvlcPlayerStop", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }

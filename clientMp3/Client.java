@@ -3,10 +3,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.net.InetAddress;
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import static java.lang.System.out;
 
 public class Client
 {
-    public static void main(String[] args)
+//    static final String ipServeur = "192.168.0.17";
+//    static final String ipServeur = "192.168.0.17";
+    static final String ipServeur = "192.168.1.18";
+
+    public static void main(String[] args) throws SocketException
     {
         try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args))
         {
@@ -16,12 +25,13 @@ public class Client
             initData.properties = datasize;
             com.zeroc.Ice.Communicator ic = com.zeroc.Ice.Util.initialize(initData);
 
-            com.zeroc.Ice.ObjectPrx base = ic.stringToProxy("Server:tcp -h 127.0.0.1 -p 10000");
+            com.zeroc.Ice.ObjectPrx base = ic.stringToProxy("Server:tcp -h "+ipServeur+" -p 10000");
             ServerPrx server = ServerPrx.checkedCast(base);
             if(server == null)
             {
                 throw new Error("Invalid proxy");
             }
+
 
             int inputChoose=-1;
             do{
@@ -145,7 +155,7 @@ public class Client
                         case DOWNLOAD:
                             System.out.print("\033[H\033[2J");
                             System.out.print("en test");
-                            server.testLibvlcPlayer();
+                            server.LibvlcPlayerPlay();
                             //app.music result = null;
                             //byte[] file = server.downloadDocument(result);
                             break;
