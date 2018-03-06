@@ -14,6 +14,7 @@ public class Client
 //    static final String ipServeur = "192.168.0.17";
 //    static final String ipServeur = "192.168.0.17";
     static final String ipServeur = "192.168.1.18";
+    static final String ipServeur = "10.126.1.91"; //ecole
 
     public static void main(String[] args) throws SocketException
     {

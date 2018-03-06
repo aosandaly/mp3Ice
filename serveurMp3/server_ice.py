@@ -212,14 +212,14 @@ if 'ServerPrx' not in _M_app.__dict__:
         def end_downloadDocument(self, _r):
             return _M_app.Server._op_downloadDocument.end(self, _r)
 
-        def LibvlcPlayerPlay(self, context=None):
-            return _M_app.Server._op_LibvlcPlayerPlay.invoke(self, ((), context))
+        def LibvlcPlayerPlay(self, name, context=None):
+            return _M_app.Server._op_LibvlcPlayerPlay.invoke(self, ((name, ), context))
 
-        def LibvlcPlayerPlayAsync(self, context=None):
-            return _M_app.Server._op_LibvlcPlayerPlay.invokeAsync(self, ((), context))
+        def LibvlcPlayerPlayAsync(self, name, context=None):
+            return _M_app.Server._op_LibvlcPlayerPlay.invokeAsync(self, ((name, ), context))
 
-        def begin_LibvlcPlayerPlay(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_app.Server._op_LibvlcPlayerPlay.begin(self, ((), _response, _ex, _sent, context))
+        def begin_LibvlcPlayerPlay(self, name, _response=None, _ex=None, _sent=None, context=None):
+            return _M_app.Server._op_LibvlcPlayerPlay.begin(self, ((name, ), _response, _ex, _sent, context))
 
         def end_LibvlcPlayerPlay(self, _r):
             return _M_app.Server._op_LibvlcPlayerPlay.end(self, _r)
@@ -280,7 +280,7 @@ if 'ServerPrx' not in _M_app.__dict__:
         def downloadDocument(self, music, current=None):
             raise NotImplementedError("servant method 'downloadDocument' not implemented")
 
-        def LibvlcPlayerPlay(self, current=None):
+        def LibvlcPlayerPlay(self, name, current=None):
             raise NotImplementedError("servant method 'LibvlcPlayerPlay' not implemented")
 
         def LibvlcPlayerStop(self, current=None):
@@ -299,7 +299,7 @@ if 'ServerPrx' not in _M_app.__dict__:
     Server._op_displayListMusic = IcePy.Operation('displayListMusic', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_app._t_tab, False, 0), ())
     Server._op_searchDocument = IcePy.Operation('searchDocument', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_app._t_tab, False, 0), ())
     Server._op_downloadDocument = IcePy.Operation('downloadDocument', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_app._t_music, False, 0),), (), ((), _M_app._t_file, False, 0), ())
-    Server._op_LibvlcPlayerPlay = IcePy.Operation('LibvlcPlayerPlay', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Server._op_LibvlcPlayerPlay = IcePy.Operation('LibvlcPlayerPlay', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
     Server._op_LibvlcPlayerStop = IcePy.Operation('LibvlcPlayerStop', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_app.Server = Server

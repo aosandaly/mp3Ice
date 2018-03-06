@@ -80,11 +80,11 @@ class ServerI(app.Server):
         data = f.read()
         return data
 
-    def LibvlcPlayerPlay(self,current=None):
+    def LibvlcPlayerPlay(self,name="MINIONS.mp3",current=None):
        print('test')
        chemin = "musics/"
-       media_name = "MINIONS.mp3"
-       sout = '#transcode{acodec=mp3,ab=128,channels=2,samplerate=44100}:http{dst=:8090/' + str(media_name)+'}'
+       media_name = name
+       sout = '#transcode{acodec=mp3,ab=128,channels=2,samplerate=44100}:http{dst=:8090/' + "sample.mp3"+'}'
        self.instance = vlc.Instance("--input-repeat=999999")
        # instance = vlc.Instance('--verbose 2'.split())
        # instance =vlc.Instance('--repeat')
@@ -98,4 +98,5 @@ class ServerI(app.Server):
 
     def LibvlcPlayerStop(self,current=None):
         print("d")
-        self.instance.vlm_stop_media("lecteur")
+        if self.instance is not '':
+            self.instance.vlm_del_media("lecteur")

@@ -5,7 +5,9 @@ import time
 Ice.loadSlice('../interface/server.ice')
 # ipServeur = "192.168.0.17" # momo parent
 # ipServeur = "192.168.0.17" # momo appartement
-ipServeur = "192.168.1.18" # moi
+# ipServeur = "192.168.1.18" # moi
+# ipServeur = "10.126.1.91" # ecole
+ipServeur = "192.168.42.84" # ipTelephone
 
 with Ice.initialize(sys.argv) as communicator:
     adapter = communicator.createObjectAdapterWithEndpoints("ServerAdapter", "tcp -h "+ipServeur+" -p 10000")
