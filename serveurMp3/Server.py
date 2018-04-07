@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.6
 import sys, Ice
 from ServerI import ServerI
 import time
