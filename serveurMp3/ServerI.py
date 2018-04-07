@@ -31,7 +31,8 @@ class ServerI(app.Server):
         # # filename = foobar.txt
         tag = id3.Tag()
         for path in glob.glob('musics\\*.mp3'):
-            #print(os.path.splitext(ntpath.basename(path))[0])
+            print(os.path.splitext(ntpath.basename(path))[0])
+            print(path)
             tag.parse(path)
             if tag.artist is not None:
                 artist = tag.artist
