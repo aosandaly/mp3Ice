@@ -31,8 +31,8 @@ class ServerI(app.Server):
         # # path = path/to/file
         # # filename = foobar.txt
         tag = id3.Tag()
-        print(glob.glob('musics\\*.mp3'))
-        for path in glob.glob('musics\\*.mp3'):
+        print(glob.glob('musics/*.mp3'))
+        for path in glob.glob('musics/*.mp3'):
             print(os.path.splitext(ntpath.basename(path))[0])
             print(path)
             tag.parse(path)
