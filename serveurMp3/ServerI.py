@@ -13,6 +13,7 @@ class ServerI(app.Server):
     def __init__(self):
         self.documents = []
         self.instance = ""
+        print('init')
         self.addMusicAuto()
         # music = Music("MINIONS.mp3", "fref", "fre", "fre")
         #
@@ -30,6 +31,7 @@ class ServerI(app.Server):
         # # path = path/to/file
         # # filename = foobar.txt
         tag = id3.Tag()
+        print(glob.glob('musics\\*.mp3'))
         for path in glob.glob('musics\\*.mp3'):
             print(os.path.splitext(ntpath.basename(path))[0])
             print(path)
