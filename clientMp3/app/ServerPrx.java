@@ -186,30 +186,32 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void LibvlcPlayerPlay()
+    default void LibvlcPlayerPlay(String name)
     {
-        LibvlcPlayerPlay(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        LibvlcPlayerPlay(name, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void LibvlcPlayerPlay(java.util.Map<String, String> context)
+    default void LibvlcPlayerPlay(String name, java.util.Map<String, String> context)
     {
-        _iceI_LibvlcPlayerPlayAsync(context, true).waitForResponse();
+        _iceI_LibvlcPlayerPlayAsync(name, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerPlayAsync()
+    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerPlayAsync(String name)
     {
-        return _iceI_LibvlcPlayerPlayAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_LibvlcPlayerPlayAsync(name, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerPlayAsync(java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerPlayAsync(String name, java.util.Map<String, String> context)
     {
-        return _iceI_LibvlcPlayerPlayAsync(context, false);
+        return _iceI_LibvlcPlayerPlayAsync(name, context, false);
     }
 
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_LibvlcPlayerPlayAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_LibvlcPlayerPlayAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "LibvlcPlayerPlay", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeString(iceP_name);
+                 }, null);
         return f;
     }
 

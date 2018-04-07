@@ -95,3 +95,6 @@ pip install python-vlc
 pip install eyeD3 eyeD3[display-plugin]
 
 pip install python_magic_bin-0.4.14-py2.py3-none-win32.whl
+
+### web service
+pip install flask

@@ -32,7 +32,7 @@ public interface Server extends com.zeroc.Ice.Object
 
     byte[] downloadDocument(music music, com.zeroc.Ice.Current current);
 
-    void LibvlcPlayerPlay(com.zeroc.Ice.Current current);
+    void LibvlcPlayerPlay(String name, com.zeroc.Ice.Current current);
 
     void LibvlcPlayerStop(com.zeroc.Ice.Current current);
 
@@ -131,8 +131,11 @@ public interface Server extends com.zeroc.Ice.Object
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_LibvlcPlayerPlay(Server obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.LibvlcPlayerPlay(current);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        String iceP_name;
+        iceP_name = istr.readString();
+        inS.endReadParams();
+        obj.LibvlcPlayerPlay(iceP_name, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 

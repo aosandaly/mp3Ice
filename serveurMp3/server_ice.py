@@ -200,18 +200,6 @@ if 'ServerPrx' not in _M_app.__dict__:
         def end_searchDocument(self, _r):
             return _M_app.Server._op_searchDocument.end(self, _r)
 
-        def downloadDocument(self, music, context=None):
-            return _M_app.Server._op_downloadDocument.invoke(self, ((music, ), context))
-
-        def downloadDocumentAsync(self, music, context=None):
-            return _M_app.Server._op_downloadDocument.invokeAsync(self, ((music, ), context))
-
-        def begin_downloadDocument(self, music, _response=None, _ex=None, _sent=None, context=None):
-            return _M_app.Server._op_downloadDocument.begin(self, ((music, ), _response, _ex, _sent, context))
-
-        def end_downloadDocument(self, _r):
-            return _M_app.Server._op_downloadDocument.end(self, _r)
-
         def LibvlcPlayerPlay(self, name, context=None):
             return _M_app.Server._op_LibvlcPlayerPlay.invoke(self, ((name, ), context))
 
@@ -235,6 +223,18 @@ if 'ServerPrx' not in _M_app.__dict__:
 
         def end_LibvlcPlayerStop(self, _r):
             return _M_app.Server._op_LibvlcPlayerStop.end(self, _r)
+
+        def LibvlcPlayerPause(self, context=None):
+            return _M_app.Server._op_LibvlcPlayerPause.invoke(self, ((), context))
+
+        def LibvlcPlayerPauseAsync(self, context=None):
+            return _M_app.Server._op_LibvlcPlayerPause.invokeAsync(self, ((), context))
+
+        def begin_LibvlcPlayerPause(self, _response=None, _ex=None, _sent=None, context=None):
+            return _M_app.Server._op_LibvlcPlayerPause.begin(self, ((), _response, _ex, _sent, context))
+
+        def end_LibvlcPlayerPause(self, _r):
+            return _M_app.Server._op_LibvlcPlayerPause.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -277,14 +277,14 @@ if 'ServerPrx' not in _M_app.__dict__:
         def searchDocument(self, attribute, name, current=None):
             raise NotImplementedError("servant method 'searchDocument' not implemented")
 
-        def downloadDocument(self, music, current=None):
-            raise NotImplementedError("servant method 'downloadDocument' not implemented")
-
         def LibvlcPlayerPlay(self, name, current=None):
             raise NotImplementedError("servant method 'LibvlcPlayerPlay' not implemented")
 
         def LibvlcPlayerStop(self, current=None):
             raise NotImplementedError("servant method 'LibvlcPlayerStop' not implemented")
+
+        def LibvlcPlayerPause(self, current=None):
+            raise NotImplementedError("servant method 'LibvlcPlayerPause' not implemented")
 
         def __str__(self):
             return IcePy.stringify(self, _M_app._t_ServerDisp)
@@ -298,9 +298,9 @@ if 'ServerPrx' not in _M_app.__dict__:
     Server._op_removeDocument = IcePy.Operation('removeDocument', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
     Server._op_displayListMusic = IcePy.Operation('displayListMusic', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_app._t_tab, False, 0), ())
     Server._op_searchDocument = IcePy.Operation('searchDocument', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_app._t_tab, False, 0), ())
-    Server._op_downloadDocument = IcePy.Operation('downloadDocument', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_app._t_music, False, 0),), (), ((), _M_app._t_file, False, 0), ())
     Server._op_LibvlcPlayerPlay = IcePy.Operation('LibvlcPlayerPlay', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
     Server._op_LibvlcPlayerStop = IcePy.Operation('LibvlcPlayerStop', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Server._op_LibvlcPlayerPause = IcePy.Operation('LibvlcPlayerPause', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_app.Server = Server
     del Server

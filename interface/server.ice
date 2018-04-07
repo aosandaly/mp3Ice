@@ -17,8 +17,8 @@ module app
         string removeDocument(string name);
 		tab  displayListMusic();
         tab  searchDocument(string attribute, string name);
-        file downloadDocument(music music);
 		void LibvlcPlayerPlay(string name);
 		void LibvlcPlayerStop();
+		void LibvlcPlayerPause();
     }
 }

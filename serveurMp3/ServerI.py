@@ -70,15 +70,11 @@ class ServerI(app.Server):
 
     def searchDocument(self, attribute, name, current=None):
         result = []
+        # todo: faire la recherche par similitude
         for document in self.documents:
-            if getattr(document, attribute) == name:
+            if getattr(document, attribute).lower() == name.lower():
                 result.append(document)
         return result
-
-    def downloadDocument(self, document, current=None):
-        f = open("musics/MINIONS.mp3", "rb")
-        data = f.read()
-        return data
 
     def LibvlcPlayerPlay(self,name="MINIONS.mp3",current=None):
        print('test')
@@ -100,3 +96,8 @@ class ServerI(app.Server):
         print("d")
         if self.instance is not '':
             self.instance.vlm_del_media("lecteur")
+
+    def LibvlcPlayerPause(self, current=None):
+        print("pause")
+        if self.instance is not '':
+            self.instance.vlm_pause_media("lecteur")
