@@ -102,5 +102,5 @@ pip install python_magic_bin-0.4.14-py2.py3-none-win32.whl
 python -m pip install --upgrade pip
 ### web service
 pip install flask
-
+pip install Flask-HTTPAuth
 pip install config
