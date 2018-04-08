@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 from flask import Flask, jsonify, make_response,request
 import json
 from flask_httpauth import HTTPBasicAuth
