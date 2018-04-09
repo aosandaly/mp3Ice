@@ -42,10 +42,10 @@ class ParsingPerso:
     def phrase_elaguer(self, phrase):
         phrase = str.lower(phrase)
         phrasePropre = str()
-        for c in phrase:
-            if c in string.ascii_lowercase or c in string.digits or c == ' ':
-                phrasePropre += c;
-        return phrasePropre
+        # for c in phrase:
+            # if c in string.ascii_lowercase or c in string.digits or c == ' ':
+            #     phrasePropre += c;
+        return phrase
 
     # si le premier mot est une action
     def findActionFirstWord(self, phraseParts):

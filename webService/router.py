@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.6
+# -*- coding: utf-8 -*-
 from flask import Flask, jsonify, make_response,request
 import json
 from flask_httpauth import HTTPBasicAuth
@@ -8,7 +9,7 @@ auth = HTTPBasicAuth()
 app = Flask(__name__)
 app.debug = True
 
-
+app.config['JSON_AS_ASCII'] = False
 
 
 @auth.error_handler
@@ -21,9 +22,12 @@ def index():
     return "Hello test !"
 
 
-@app.route('/api/voice', methods=['GET'])
+@app.route('/api/voice', methods = ['GET', 'POST'])
 def getLangageNaturel():
-    phrase = request.args.get('phrase',default = '', type = str)
+    if request.method == 'GET':
+        phrase = request.args.get('phrase',default = '', type = str)
+    if request.method == 'POST':
+        phrase = request.form.get('phrase', default='', type=str)
     Parsing = ParsingPerso()
     phrase = Parsing.parsingPhrase(phrase)
     return make_response(jsonify({'response': phrase.to_json()}), phrase.code)
@@ -32,6 +36,7 @@ def getLangageNaturel():
 if __name__ == '__main__':
 
     app.run(
+        # host="192.168.1.18",
         host="192.168.1.10",
         port=8080,
         threaded=True
