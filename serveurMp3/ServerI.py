@@ -15,10 +15,6 @@ class ServerI(app.Server):
         self.instance = ""
         print('init')
         self.addMusicAuto()
-        # music = Music("MINIONS.mp3", "fref", "fre", "fre")
-        #
-        # self.addDocument(music)
-        # self.addDocument(music)
 
     def addMusicAuto(self):
         # inputFilepath = 'path/to/file/foobar.txt'

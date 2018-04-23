@@ -1,9 +1,13 @@
 #!/usr/bin/env python3.6
 # -*- coding: utf-8 -*-
-from flask import Flask, jsonify, make_response,request
+from flask import Flask, jsonify, make_response, request, config
 import json
 from flask_httpauth import HTTPBasicAuth
 from ParsingPerso import ParsingPerso
+import ip
+
+# config.host = "192.168.1.10"
+config.host = ip.get_ip()
 
 auth = HTTPBasicAuth()
 app = Flask(__name__)
@@ -36,8 +40,7 @@ def getLangageNaturel():
 if __name__ == '__main__':
 
     app.run(
-        # host="192.168.1.18",
-        host="192.168.1.10",
+        host=config.host,
         port=8080,
         threaded=True
     )
